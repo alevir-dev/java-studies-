@@ -92,6 +92,9 @@ public class BibliotecaMain {
 
                     biblioteca.disponibilidade(tituloLivro, disponibilidade);
                     break;
+                case 7:
+                    biblioteca.valorTotalAcervo();
+                    break;
                 case 0:
                     System.out.println("Saindo...");
                     break;

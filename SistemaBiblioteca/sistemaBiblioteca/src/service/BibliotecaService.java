@@ -6,11 +6,17 @@ import domain.Livro;
 public class BibliotecaService {
     private static final int ESTOQUE_MAXIMO = 20;
 
-    Livro[] livros = new Livro[ESTOQUE_MAXIMO];
-    int posicao = 0;
+    private final Livro[] livros = new Livro[ESTOQUE_MAXIMO];
+    private int posicao = 0;
 
 
     public void adicionarLivro(String tituloLivro, String autorLivro, double precoLivro, int numeroDePaginasDoLivro){
+
+        if (posicao == ESTOQUE_MAXIMO){
+            System.out.println("Acervo cheio!");
+            return;
+        }
+
 
         Livro livro = new Livro(tituloLivro, autorLivro, precoLivro, numeroDePaginasDoLivro, posicao + 1);
 
@@ -19,14 +25,32 @@ public class BibliotecaService {
 
     }
 
+    private boolean acervoVazio(){
+        if (posicao == 0){
+            System.out.println("Não há livros no acervo!");
+            return true;
+        }
+        return false;
+    }
+
 
     public void listarLivros(){
+
+        if(acervoVazio()){
+            return;
+        }
+
         for (int i = 0; i < posicao; i++){
             livros[i].imprime();
         }
     }
 
     public void buscarPorTitulo(String procurarTitulo){
+
+        if (acervoVazio()){
+            return;
+        }
+
 
         for (int i = 0; i < posicao; i++) {
             if (livros[i].getTitulo().equalsIgnoreCase(procurarTitulo)){
@@ -38,6 +62,11 @@ public class BibliotecaService {
     }
 
     public void desconto(String titulo, double desconto){
+
+        if (acervoVazio()){
+            return;
+        }
+
         for (int i = 0; i < posicao; i++){
             if (livros[i].getTitulo().equalsIgnoreCase(titulo)){
                 livros[i].aplicarDesconto(desconto);
@@ -48,6 +77,15 @@ public class BibliotecaService {
     }
 
     public void removerLivroPorID(int ID){
+
+        if (acervoVazio()){
+            return;
+        }
+
+        if (posicao == 0){
+            System.out.println("Nenhum livro cadastrado!");
+            return;
+        }
 
         int indiceEncontrado = -1;
 
@@ -63,7 +101,7 @@ public class BibliotecaService {
             return;
         }
 
-        for (int i = indiceEncontrado; i < posicao; i++){
+        for (int i = indiceEncontrado; i < posicao -1; i++){
             livros[i] = livros[i + 1];
         }
 
@@ -74,8 +112,12 @@ public class BibliotecaService {
 
 
     public void disponibilidade(String titulo, String disponivel){
-        boolean estaDisponivel = disponivel.equalsIgnoreCase("S");
 
+        if (acervoVazio()){
+            return;
+        }
+
+        boolean estaDisponivel = disponivel.equalsIgnoreCase("S");
 
 
         for(int i =0; i < posicao; i++){
@@ -87,9 +129,22 @@ public class BibliotecaService {
 
         System.out.println("Livro não encontrado");
 
-
     }
 
+    public void valorTotalAcervo(){
+
+        if (acervoVazio()){
+            return;
+        }
+
+        double valorAcervo = 0;
+
+        for (int i = 0; i < posicao; i++){
+            valorAcervo += livros[i].getPreco();
+        }
+
+        System.out.println("O valor total do acervo é de: R$"+valorAcervo);
+    }
 
 
 
