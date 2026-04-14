@@ -46,7 +46,7 @@ public class Livro {
         System.out.printf("ID: %04d%n", this.ID);
         System.out.println("Titulo: "+ this.titulo);
         System.out.println("Autor: "+ this.autor);
-        System.out.println("Preço: R$"+ this.preco);
+        System.out.printf("Preço: R$%.2f%n", this.preco);
         System.out.println("Status: "+ (this.disponivel ? "Disponível" : "Indisponível"));
         System.out.println("Numero de Paginas: "+ this.numeroDePaginas);
     }

@@ -22,6 +22,7 @@ public class BibliotecaService {
 
         livros[posicao] = livro;
         posicao++;
+        System.out.println("Livro '"+tituloLivro+"' adicionado com sucesso!");
 
     }
 
@@ -40,6 +41,7 @@ public class BibliotecaService {
         }
 
         for (int i = 0; i < posicao; i++){
+            System.out.println("----------------------------------");
             livros[i].imprime();
         }
     }
@@ -68,6 +70,7 @@ public class BibliotecaService {
         for (int i = 0; i < posicao; i++){
             if (livros[i].getTitulo().equalsIgnoreCase(titulo)){
                 livros[i].aplicarDesconto(desconto);
+                System.out.println("Desconto de R$"+desconto+" aplicado com sucesso!");
                 return;
             }
         }
@@ -77,11 +80,6 @@ public class BibliotecaService {
     public void removerLivroPorID(int ID){
 
         if (acervoVazio()){
-            return;
-        }
-
-        if (posicao == 0){
-            System.out.println("Nenhum livro cadastrado!");
             return;
         }
 
@@ -105,6 +103,7 @@ public class BibliotecaService {
 
         livros[posicao -1] = null;
         posicao--;
+        System.out.println("Livro removido com sucesso!");
 
     }
 
@@ -121,6 +120,7 @@ public class BibliotecaService {
         for(int i =0; i < posicao; i++){
             if (livros[i].getTitulo().equalsIgnoreCase(titulo)){
                 livros[i].setDisponivel(estaDisponivel);
+                System.out.println("Disponibilidade do livro '"+titulo+"' atualizada com sucesso!");
                 return;
             }
         }
@@ -141,7 +141,7 @@ public class BibliotecaService {
             valorAcervo += livros[i].getPreco();
         }
 
-        System.out.println("O valor total do acervo é de: R$"+valorAcervo);
+        System.out.printf("O valor total do acervo é de: R$%.2f%n", valorAcervo);
     }
 
     public void valorPorLivro(){

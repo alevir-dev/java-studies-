@@ -77,7 +77,7 @@ public class BibliotecaMain {
                     biblioteca.removerLivroPorID(removerPorID);
                     break;
                 case 5:
-                    System.out.println("Digite o titulo do livro");
+                    System.out.print("Digite o titulo do livro");
                     tituloLivro = sc.nextLine();
                     System.out.print("Digite o desconto: ");
                     adicionarDesconto = sc.nextDouble();
