@@ -98,6 +98,9 @@ public class BibliotecaMain {
                 case 8:
                     biblioteca.valorPorLivro();
                     break;
+                case 9:
+                    biblioteca.listarLivrosDisponiveis();
+                    break;
                 case 0:
                     System.out.println("Saindo...");
                     break;

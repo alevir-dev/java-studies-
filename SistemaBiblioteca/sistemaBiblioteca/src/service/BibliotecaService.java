@@ -157,6 +157,28 @@ public class BibliotecaService {
 
     }
 
+    public void listarLivrosDisponiveis(){
+
+        if (acervoVazio()) return;
+
+        boolean encontrou = false;
+
+        for (int i = 0; i < posicao; i++){
+            if (livros[i].isDisponivel()){
+                if (!encontrou){
+                    System.out.println("===== LIVROS DISPONÍVEIS =====");
+                    encontrou = true;
+                }
+                livros[i].imprime();
+            }
+
+        }
+        if (!encontrou){
+            System.out.println("Nenhum livro disponível no acervo!");
+        }
+
+    }
+
 
 
 
