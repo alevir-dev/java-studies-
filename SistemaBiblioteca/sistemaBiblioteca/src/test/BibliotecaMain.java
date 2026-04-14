@@ -95,6 +95,9 @@ public class BibliotecaMain {
                 case 7:
                     biblioteca.valorTotalAcervo();
                     break;
+                case 8:
+                    biblioteca.valorPorLivro();
+                    break;
                 case 0:
                     System.out.println("Saindo...");
                     break;

@@ -4,7 +4,7 @@ import domain.Livro;
 
 
 public class BibliotecaService {
-    private static final int ESTOQUE_MAXIMO = 20;
+    private static final int ESTOQUE_MAXIMO = 100;
 
     private final Livro[] livros = new Livro[ESTOQUE_MAXIMO];
     private int posicao = 0;
@@ -33,7 +33,6 @@ public class BibliotecaService {
         return false;
     }
 
-
     public void listarLivros(){
 
         if(acervoVazio()){
@@ -50,7 +49,6 @@ public class BibliotecaService {
         if (acervoVazio()){
             return;
         }
-
 
         for (int i = 0; i < posicao; i++) {
             if (livros[i].getTitulo().equalsIgnoreCase(procurarTitulo)){
@@ -144,6 +142,19 @@ public class BibliotecaService {
         }
 
         System.out.println("O valor total do acervo é de: R$"+valorAcervo);
+    }
+
+    public void valorPorLivro(){
+        if (acervoVazio()){
+            return;
+        }
+
+        for (int i =0; i < posicao; i++){
+            System.out.println("__________________");
+            System.out.println("Titulo: "+livros[i].getTitulo());
+            System.out.printf("Valor: R$%.2f%n", livros[i].getPreco());
+        }
+
     }
 
 
