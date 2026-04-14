@@ -170,12 +170,38 @@ public class BibliotecaService {
                     encontrou = true;
                 }
                 livros[i].imprime();
+                System.out.println("_____________________");
             }
 
         }
         if (!encontrou){
             System.out.println("Nenhum livro disponível no acervo!");
         }
+
+    }
+
+    public void listarLivrosIndisponiveis(){
+        if (acervoVazio()) return;
+
+        boolean encontrou = false;
+
+        for (int i = 0; i < posicao; i++){
+            if (!livros[i].isDisponivel()){
+
+                if (!encontrou){
+                    System.out.println("===== LIVROS INDISPONÍVEIS =====");
+                    encontrou = true;
+                }
+                livros[i].imprime();
+                System.out.println("_____________________");
+            }
+        }
+
+        if (!encontrou){
+            System.out.println("Nenhum livro indisponível no acervo!");
+        }
+
+
 
     }
 

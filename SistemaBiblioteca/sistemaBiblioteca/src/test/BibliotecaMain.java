@@ -101,6 +101,9 @@ public class BibliotecaMain {
                 case 9:
                     biblioteca.listarLivrosDisponiveis();
                     break;
+                case 10:
+                    biblioteca.listarLivrosIndisponiveis();
+                    break;
                 case 0:
                     System.out.println("Saindo...");
                     break;
