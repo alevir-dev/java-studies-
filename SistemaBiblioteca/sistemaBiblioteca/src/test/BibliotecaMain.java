@@ -110,6 +110,9 @@ public class BibliotecaMain {
                     buscarAutor = sc.nextLine();
                     biblioteca.listarLivrosPorAutor(buscarAutor);
                     break;
+                case 12:
+                    biblioteca.totalDeLivros();
+                    break;
                 case 0:
                     System.out.println("Saindo...");
                     break;

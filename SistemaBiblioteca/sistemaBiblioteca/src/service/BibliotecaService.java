@@ -226,6 +226,13 @@ public class BibliotecaService {
 
     }
 
+    public void totalDeLivros(){
+
+        if (acervoVazio()) return;
+
+        System.out.println("Total de livros no acervo: " + posicao);
+    }
+
 
 
 
