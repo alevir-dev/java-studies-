@@ -201,7 +201,28 @@ public class BibliotecaService {
             System.out.println("Nenhum livro indisponível no acervo!");
         }
 
+    }
 
+    public void listarLivrosPorAutor(String nomeAutor){
+
+        if (acervoVazio()) return;
+
+        boolean encontrou = false;
+
+        for (int i = 0; i < posicao; i++){
+            if (livros[i].getAutor().equalsIgnoreCase(nomeAutor)){
+                if (!encontrou){
+                    System.out.println("===== LIVROS DE "+ nomeAutor+" =====");
+                    encontrou = true;
+                }
+                livros[i].imprime();
+                System.out.println("_____________________");
+            }
+        }
+
+        if (!encontrou){
+            System.out.println("Autor não encontrado!");
+        }
 
     }
 

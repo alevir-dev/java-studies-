@@ -22,6 +22,7 @@ public class BibliotecaMain {
         int removerPorID;
         double adicionarDesconto;
         String disponibilidade;
+        String buscarAutor;
 
         while (opcao != 0){
             System.out.println("===== SISTEMA DE BIBLIOTECA =====");
@@ -77,7 +78,7 @@ public class BibliotecaMain {
                     biblioteca.removerLivroPorID(removerPorID);
                     break;
                 case 5:
-                    System.out.print("Digite o titulo do livro");
+                    System.out.print("Digite o titulo do livro: ");
                     tituloLivro = sc.nextLine();
                     System.out.print("Digite o desconto: ");
                     adicionarDesconto = sc.nextDouble();
@@ -87,7 +88,7 @@ public class BibliotecaMain {
                 case 6:
                     System.out.print("Digite o titulo do livro: ");
                     tituloLivro = sc.nextLine();
-                    System.out.print("O livro está disponível (S/N) ?");
+                    System.out.print("O livro está disponível (S/N)? ");
                     disponibilidade = sc.nextLine();
 
                     biblioteca.disponibilidade(tituloLivro, disponibilidade);
@@ -103,6 +104,11 @@ public class BibliotecaMain {
                     break;
                 case 10:
                     biblioteca.listarLivrosIndisponiveis();
+                    break;
+                case 11:
+                    System.out.print("Digite o nome do autor: ");
+                    buscarAutor = sc.nextLine();
+                    biblioteca.listarLivrosPorAutor(buscarAutor);
                     break;
                 case 0:
                     System.out.println("Saindo...");
