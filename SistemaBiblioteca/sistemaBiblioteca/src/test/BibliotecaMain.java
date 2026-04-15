@@ -24,6 +24,8 @@ public class BibliotecaMain {
         double adicionarDesconto;
         String disponibilidade;
         String buscarAutor;
+        double precoMinimo;
+        double precoMaximo;
 
         while (opcao != 0){
             System.out.println("===== SISTEMA DE BIBLIOTECA =====");
@@ -41,6 +43,7 @@ public class BibliotecaMain {
             System.out.println("11 - Listar apenas livros indisponíveis");
             System.out.println("12 - Buscar livro por autor");
             System.out.println("13 - Contar quantos livros tem no acervo");
+            System.out.println("14 - Buscar livros por faixa de preço");
             System.out.println("0 - Sair");
             System.out.println();
             System.out.print("Escolha uma opção: ");
@@ -120,6 +123,15 @@ public class BibliotecaMain {
                     break;
                 case 13:
                     biblioteca.totalDeLivros();
+                    break;
+                case 14:
+                    System.out.print("Digite o preço minimo do livro: ");
+                    precoMinimo = sc.nextDouble();
+                    sc.nextLine();
+                    System.out.print("Digite o preço maximo do livro: ");
+                    precoMaximo = sc.nextDouble();
+                    sc.nextLine();
+                    biblioteca.listarLivrosPorFaixaDePreco(precoMinimo,precoMaximo);
                     break;
                 case 0:
                     System.out.println("Saindo...");

@@ -233,6 +233,36 @@ public class BibliotecaService {
     }
 
 
+    public void listarLivrosPorFaixaDePreco(double valorMinimo, double valorMaximo){
+
+        if(acervoVazio()) return;
+
+        boolean encontrou = false;
+
+        for (int i = 0; i < posicao; i++){
+
+            double preco = livros[i].getPreco();
+
+            if (preco >= valorMinimo && preco <= valorMaximo){
+                if (!encontrou){
+                    System.out.printf("===== LIVROS ENTRE R$%.2f E R$%.2f =====%n", valorMinimo, valorMaximo);
+                    encontrou = true;
+                }
+
+                livros[i].imprime();
+                System.out.println("_____________________");
+            }
+        }
+
+        if(!encontrou){
+            System.out.println("Não há livros nessa faixa de preço");
+        }
+
+
+
+    }
+
+
 
 
 }
