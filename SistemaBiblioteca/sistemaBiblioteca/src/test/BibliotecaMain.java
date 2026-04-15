@@ -20,6 +20,7 @@ public class BibliotecaMain {
         double precoLivro;
         int numeroDePaginasLivro;
         int removerPorID;
+        int buscarPorId;
         double adicionarDesconto;
         String disponibilidade;
         String buscarAutor;
@@ -31,14 +32,15 @@ public class BibliotecaMain {
             System.out.println("2 - Listar livros");
             System.out.println("3 - Buscar livro por título");
             System.out.println("4 - Remover livro por ID");
-            System.out.println("5 - Aplicar desconto");
-            System.out.println("6 - Marcar disponibilidade");
-            System.out.println("7 - Valor total do acervo");
-            System.out.println("8 - Valor por livro");
-            System.out.println("9 - Listar apenas livros disponíveis");
-            System.out.println("10 - Listar apenas livros indisponíveis");
-            System.out.println("11 - Buscar livro por autor");
-            System.out.println("12 - Contar quantos livros tem no acervo");
+            System.out.println("5 - Buscar livro por ID");
+            System.out.println("6 - Aplicar desconto");
+            System.out.println("7 - Marcar disponibilidade");
+            System.out.println("8 - Valor total do acervo");
+            System.out.println("9 - Valor por livro");
+            System.out.println("10 - Listar apenas livros disponíveis");
+            System.out.println("11 - Listar apenas livros indisponíveis");
+            System.out.println("12 - Buscar livro por autor");
+            System.out.println("13 - Contar quantos livros tem no acervo");
             System.out.println("0 - Sair");
             System.out.println();
             System.out.print("Escolha uma opção: ");
@@ -78,6 +80,12 @@ public class BibliotecaMain {
                     biblioteca.removerLivroPorID(removerPorID);
                     break;
                 case 5:
+                    System.out.print("Digite o ID do livro: ");
+                    buscarPorId = sc.nextInt();
+                    sc.nextLine();
+                    biblioteca.buscarLivroPorID(buscarPorId);
+                    break;
+                case 6:
                     System.out.print("Digite o titulo do livro: ");
                     tituloLivro = sc.nextLine();
                     System.out.print("Digite o desconto: ");
@@ -85,7 +93,7 @@ public class BibliotecaMain {
                     sc.nextLine();
                     biblioteca.desconto(tituloLivro,adicionarDesconto);
                     break;
-                case 6:
+                case 7:
                     System.out.print("Digite o titulo do livro: ");
                     tituloLivro = sc.nextLine();
                     System.out.print("O livro está disponível (S/N)? ");
@@ -93,24 +101,24 @@ public class BibliotecaMain {
 
                     biblioteca.disponibilidade(tituloLivro, disponibilidade);
                     break;
-                case 7:
+                case 8:
                     biblioteca.valorTotalAcervo();
                     break;
-                case 8:
+                case 9:
                     biblioteca.valorPorLivro();
                     break;
-                case 9:
+                case 10:
                     biblioteca.listarLivrosDisponiveis();
                     break;
-                case 10:
+                case 11:
                     biblioteca.listarLivrosIndisponiveis();
                     break;
-                case 11:
+                case 12:
                     System.out.print("Digite o nome do autor: ");
                     buscarAutor = sc.nextLine();
                     biblioteca.listarLivrosPorAutor(buscarAutor);
                     break;
-                case 12:
+                case 13:
                     biblioteca.totalDeLivros();
                     break;
                 case 0:

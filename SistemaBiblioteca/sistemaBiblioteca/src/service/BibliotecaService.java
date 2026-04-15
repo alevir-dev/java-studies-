@@ -36,9 +36,7 @@ public class BibliotecaService {
 
     public void listarLivros(){
 
-        if(acervoVazio()){
-            return;
-        }
+        if (acervoVazio()) return;
 
         for (int i = 0; i < posicao; i++){
             System.out.println("----------------------------------");
@@ -48,9 +46,7 @@ public class BibliotecaService {
 
     public void buscarPorTitulo(String procurarTitulo){
 
-        if (acervoVazio()){
-            return;
-        }
+        if (acervoVazio()) return;
 
         for (int i = 0; i < posicao; i++) {
             if (livros[i].getTitulo().equalsIgnoreCase(procurarTitulo)){
@@ -61,11 +57,22 @@ public class BibliotecaService {
         System.out.println("Livro não encontrado!");
     }
 
+    public void buscarLivroPorID(int ID){
+        if (acervoVazio()) return;
+
+        for (int i = 0; i < posicao; i++){
+            if (livros[i].getID() == ID){
+                livros[i].imprime();
+                return;
+            }
+        }
+        System.out.println("Livro não encontrado!");
+    }
+
+
     public void desconto(String titulo, double desconto){
 
-        if (acervoVazio()){
-            return;
-        }
+        if (acervoVazio()) return;
 
         for (int i = 0; i < posicao; i++){
             if (livros[i].getTitulo().equalsIgnoreCase(titulo)){
@@ -79,9 +86,7 @@ public class BibliotecaService {
 
     public void removerLivroPorID(int ID){
 
-        if (acervoVazio()){
-            return;
-        }
+        if (acervoVazio()) return;
 
         int indiceEncontrado = -1;
 
@@ -110,9 +115,7 @@ public class BibliotecaService {
 
     public void disponibilidade(String titulo, String disponivel){
 
-        if (acervoVazio()){
-            return;
-        }
+        if (acervoVazio()) return;
 
         boolean estaDisponivel = disponivel.equalsIgnoreCase("S");
 
@@ -131,9 +134,7 @@ public class BibliotecaService {
 
     public void valorTotalAcervo(){
 
-        if (acervoVazio()){
-            return;
-        }
+        if (acervoVazio()) return;
 
         double valorAcervo = 0;
 
@@ -145,9 +146,7 @@ public class BibliotecaService {
     }
 
     public void valorPorLivro(){
-        if (acervoVazio()){
-            return;
-        }
+        if (acervoVazio()) return;
 
         for (int i =0; i < posicao; i++){
             System.out.println("__________________");
