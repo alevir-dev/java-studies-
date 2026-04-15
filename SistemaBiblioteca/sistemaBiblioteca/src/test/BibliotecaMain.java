@@ -44,6 +44,8 @@ public class BibliotecaMain {
             System.out.println("12 - Buscar livro por autor");
             System.out.println("13 - Contar quantos livros tem no acervo");
             System.out.println("14 - Buscar livros por faixa de preço");
+            System.out.println("15 - Listar livros do menor preço para o maior");
+            System.out.println("16 - Listar livros do maior preço para o menor");
             System.out.println("0 - Sair");
             System.out.println();
             System.out.print("Escolha uma opção: ");
@@ -132,6 +134,12 @@ public class BibliotecaMain {
                     precoMaximo = sc.nextDouble();
                     sc.nextLine();
                     biblioteca.listarLivrosPorFaixaDePreco(precoMinimo,precoMaximo);
+                    break;
+                case 15:
+                    biblioteca.listarOrdenadoPorPreco(true);
+                    break;
+                case 16:
+                    biblioteca.listarOrdenadoPorPreco(false);
                     break;
                 case 0:
                     System.out.println("Saindo...");

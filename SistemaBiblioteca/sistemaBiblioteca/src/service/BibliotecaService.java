@@ -2,6 +2,8 @@ package service;
 
 import domain.Livro;
 
+import javax.swing.*;
+
 
 public class BibliotecaService {
     private static final int ESTOQUE_MAXIMO = 100;
@@ -258,6 +260,42 @@ public class BibliotecaService {
             System.out.println("Não há livros nessa faixa de preço");
         }
 
+    }
+
+    public void listarOrdenadoPorPreco(boolean crescente){
+
+        if(acervoVazio()) return;
+
+        Livro[] listarLivrosOrdenadosPorPreco = new Livro[posicao];
+
+        for (int i = 0; i < posicao; i++){
+            listarLivrosOrdenadosPorPreco[i] = livros[i];
+        }
+
+        for (int i = 0; i < posicao; i++) {
+            for (int j = i + 1; j < posicao; j++) {
+
+                if (
+                        (crescente && listarLivrosOrdenadosPorPreco[i].getPreco() > listarLivrosOrdenadosPorPreco[j].getPreco()) ||
+                                       (!crescente && listarLivrosOrdenadosPorPreco[i].getPreco() < listarLivrosOrdenadosPorPreco[j].getPreco())
+                ) {
+
+                    Livro temp = listarLivrosOrdenadosPorPreco[i];
+                    listarLivrosOrdenadosPorPreco[i] = listarLivrosOrdenadosPorPreco[j];
+                    listarLivrosOrdenadosPorPreco[j] = temp;
+                }
+
+
+            }
+
+
+        }
+
+
+        for(int i = 0; i < posicao; i++){
+            listarLivrosOrdenadosPorPreco[i].imprime();
+            System.out.println("_____________________");
+        }
 
 
     }
