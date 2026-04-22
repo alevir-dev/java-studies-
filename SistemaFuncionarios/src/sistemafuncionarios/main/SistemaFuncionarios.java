@@ -1,6 +1,5 @@
 package sistemafuncionarios.main;
 
-import sistemafuncionarios.dominio.Funcionario;
 import sistemafuncionarios.servico.FuncionarioService;
 
 import java.util.Scanner;
@@ -23,9 +22,11 @@ public class SistemaFuncionarios {
             System.out.println("3 - Buscar funcionário");
             System.out.println("4 - Remover funcionário");
             System.out.println("5 - Editar funcionário");
+            System.out.println("6 - Listar funcionários por idade (crescente)");
+            System.out.println("7 - Listar funcionários por idade (decrescente)");
             System.out.println("0 - Sair");
             System.out.println();
-            System.out.println("Escolha uma opção!");
+            System.out.print("Escolha uma opção: ");
             opcao = sc.nextInt();
             sc.nextLine();
 
@@ -37,7 +38,7 @@ public class SistemaFuncionarios {
                     System.out.print("Digite a idade do funcionário: ");
                     idadeFuncionario = sc.nextInt();
                     sc.nextLine();
-                    System.out.print("Digite o cargo o funcionário: ");
+                    System.out.print("Digite o cargo do funcionário: ");
                     cargoFuncionario = sc.nextLine();
                     funcionarioService.adicionarFuncionario(nomeFuncionario,idadeFuncionario,cargoFuncionario);
                     break;
@@ -62,6 +63,12 @@ public class SistemaFuncionarios {
                     System.out.print("Qual nome deseja atribuir a ele? ");
                     novoNomeFuncionario = sc.nextLine();
                     funcionarioService.editarFuncionario(nomeFuncionario, novoNomeFuncionario);
+                    break;
+                case 6:
+                    funcionarioService.listarFuncionariosPorIdade(true);
+                    break;
+                case 7:
+                    funcionarioService.listarFuncionariosPorIdade(false);
                     break;
                 case 0:
                     System.out.println("Saindo...");

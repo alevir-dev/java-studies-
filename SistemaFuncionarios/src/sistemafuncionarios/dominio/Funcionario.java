@@ -15,6 +15,7 @@ public class Funcionario {
     }
 
     public void imprime(){
+        System.out.println("_______________________________");
         System.out.printf("ID: %04d%n", this.ID);
         System.out.println("Nome: "+this.nome);
         System.out.println("Idade: "+this.idade);

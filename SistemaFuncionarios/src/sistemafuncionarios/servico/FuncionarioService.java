@@ -2,8 +2,6 @@ package sistemafuncionarios.servico;
 
 import sistemafuncionarios.dominio.Funcionario;
 
-import javax.xml.transform.Source;
-
 public class FuncionarioService {
 
     private final int TAMANHO_MAXIMO = 10;
@@ -47,6 +45,36 @@ public class FuncionarioService {
 
     }
 
+    public void listarFuncionariosPorIdade(boolean crescente){
+
+        if (arrayVazio()) return;
+
+        Funcionario[] ordenados = new Funcionario[posicao];
+
+        for (int i = 0; i < posicao; i++){
+            ordenados[i] = funcionarios[i];
+        }
+
+        for (int i  = 0; i < posicao; i++){
+            for (int j = i + 1; j < posicao; j++){
+                boolean foraDeOrdem = crescente
+                        ? ordenados[i].getIdade() > ordenados[j].getIdade()
+                        : ordenados[i].getIdade() < ordenados[j].getIdade();
+
+                if (foraDeOrdem){
+
+                    Funcionario temp = ordenados[i];
+                    ordenados[i] = ordenados[j];
+                    ordenados[j] = temp;
+                }
+            }
+        }
+
+        for (Funcionario imprimir : ordenados){
+            imprimir.imprime();
+        }
+    }
+
     public void buscarFuncionario(String funcionario){
 
         if (arrayVazio()) return;
@@ -60,7 +88,6 @@ public class FuncionarioService {
         }
 
         System.out.println("Funcionario "+funcionario +" não encontrado!");
-
     }
 
     public void removerFuncionario(String funcionario){
@@ -114,7 +141,4 @@ public class FuncionarioService {
             }
             return false;
         }
-
-
-
 }
