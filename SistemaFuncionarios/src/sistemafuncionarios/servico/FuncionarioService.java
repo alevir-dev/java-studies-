@@ -2,12 +2,14 @@ package sistemafuncionarios.servico;
 
 import sistemafuncionarios.dominio.Funcionario;
 
+import javax.xml.transform.Source;
+
 public class FuncionarioService {
 
     private final int TAMANHO_MAXIMO = 10;
 
     private final Funcionario[] funcionarios = new Funcionario[TAMANHO_MAXIMO];
-    int posicao = 0;
+    private int posicao = 0;
 
 
     public void adicionarFuncionario(String nome, int idade, String cargo){
@@ -90,13 +92,28 @@ public class FuncionarioService {
 
     }
 
-    private boolean arrayVazio(){
-        if (posicao == 0){
-            System.out.println("Nenhum funcionário adicionado");
-            return true;
+
+    public void editarFuncionario(String nomeFuncionario, String editarNomeFuncionario) {
+
+        if (arrayVazio()) return;
+
+        for (int i = 0; i < posicao; i++) {
+            if (funcionarios[i].getNome().equalsIgnoreCase(nomeFuncionario)) {
+                funcionarios[i].setNome(editarNomeFuncionario);
+                return;
+            }
         }
-        return false;
+
+        System.out.println("Funcionário não encontrado!");
+
     }
+        private boolean arrayVazio (){
+            if (posicao == 0) {
+                System.out.println("Nenhum funcionário adicionado");
+                return true;
+            }
+            return false;
+        }
 
 
 

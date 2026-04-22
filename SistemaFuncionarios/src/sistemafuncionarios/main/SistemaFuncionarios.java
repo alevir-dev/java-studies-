@@ -13,6 +13,7 @@ public class SistemaFuncionarios {
 
         int opcao = 1;
         String nomeFuncionario;
+        String novoNomeFuncionario;
         int idadeFuncionario;
         String cargoFuncionario;
 
@@ -21,6 +22,7 @@ public class SistemaFuncionarios {
             System.out.println("2 - Listar funcionários");
             System.out.println("3 - Buscar funcionário");
             System.out.println("4 - Remover funcionário");
+            System.out.println("5 - Editar funcionário");
             System.out.println("0 - Sair");
             System.out.println();
             System.out.println("Escolha uma opção!");
@@ -53,6 +55,13 @@ public class SistemaFuncionarios {
                     nomeFuncionario = sc.nextLine();
 
                     funcionarioService.removerFuncionario(nomeFuncionario);
+                    break;
+                case 5:
+                    System.out.print("Digite o nome do funcionário que deseja atualizar o nome: ");
+                    nomeFuncionario = sc.nextLine();
+                    System.out.print("Qual nome deseja atribuir a ele? ");
+                    novoNomeFuncionario = sc.nextLine();
+                    funcionarioService.editarFuncionario(nomeFuncionario, novoNomeFuncionario);
                     break;
                 case 0:
                     System.out.println("Saindo...");
